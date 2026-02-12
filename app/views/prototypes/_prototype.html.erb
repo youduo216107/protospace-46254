@@ -1,0 +1,21 @@
+<div class="card">
+  <%# 画像の表示 %>
+  <% if prototype.image.attached? %>
+    <%= link_to image_tag(prototype.image, class: :card__img), prototype_path(prototype) %>
+  <% end %>
+
+
+
+  <div class="card__body">
+    <%# タイトルの表示 %>
+    <%= link_to prototype.title, prototype_path(prototype), class: :card__title %>
+
+    <%# キャッチコピーの表示 %>
+    <p class="card__summary">
+      <%= prototype.catch_copy %>
+    </p>
+
+    <%# 投稿者名の表示 %>
+    <%= link_to "by #{prototype.user.name}", user_path(prototype.user), class: :card__user %>
+  </div>
+</div>
